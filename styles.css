@@ -1,0 +1,98 @@
+body {
+    font-family: 'IBMPlexSans', Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f1efef;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    align-items: center;
+    max-width: 1960px;
+    background-color: #f0eded;
+    margin: 0 auto;
+    font-size: 22px;
+}
+
+.nav-left {
+    flex-grow: 1;
+}
+
+.nav-right a {
+    color: #000000;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.link-dec {
+    color: #2c6ed3;
+    text-decoration: none;
+}
+
+.logo {
+    color: #000; /* Black color */
+    text-decoration: none; /* Remove underline */
+    font-size: 25px; /* Adjust font size as needed */
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.intro-paragraph {
+    font-size: 20px; /* Example: Set the font size */
+    line-height: 1.5; /* Example: Set the line height */
+    color: #333; /* Example: Set the text color */
+    max-width: 700px;
+    margin-right: 0px; /* Optional: Add margin between text and image */
+    float: left;
+}
+
+.main-content {
+    max-width: 991px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.main-content h1 {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2); /* Transparent black underline */
+    padding-bottom: 20px; /* Optional: Add space between text and underline */
+}
+
+.profile-image {
+    max-width: 200px; /* Adjust the max-width of the image */
+    height: auto; /* Maintain aspect ratio */
+    float: right;
+}
+
+.experience-content {
+    border-top: 2px solid rgba(0, 0, 0, 0.2); /* Transparent black underline */
+    padding-bottom: 20px; /* Optional: Add space between text and underline */
+    margin-top: 300px; /* Adjust the margin as needed */
+}
+
+
+footer {
+    background-color: #fff;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.scrollable-code {
+    max-height: 200px; /* Adjust the height as needed */
+    max-width: 920px;
+    overflow-y: scroll;
+    border: 1px solid #ccc; /* Border style and color */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    padding: 10px; /* Optional: Add padding inside the box */
+}
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <a href="../index.html" class="logo">Tyler Widdison</a>
+            </div>
+            <div class="nav-right">
+                <a href="">Blog</a>
+                <a href="../contact.html">Contact</a>
+                <a href="https://twitter.com/TPwidd" target="_blank"><img src="../twitter-icon.png" alt="Twitter" style="width: 30px; height: 25px;"></a>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="main-content">
+        <div class="intro-content">
+            <h1>Exploring Access to Select Health Data</h1>
+            <p class="bio"><h2>Introduction: Accessing Select Health Data</h2></p>
+            <p class="intro-paragraph-sh"> There is public access to SelectHealth machine-readable data on <a href="https://selecthealth.org/machine-readable-data">Select Health's Machine-readable data webpage.</a> When accessing machine-readable health data, it's not always easy to understand the data's structure, format, and how to parse it for usage. Here is a glimpse of what the data looks like: </p>
+            <br>
+            <div id="healthDataContainer">
+                <h2>Health Data Table</h2>
+                <table id="healthTable">
+                    <thead>
+                        <tr>
+                            <th>Drug Name</th>
+                            <th>Plans</th>
+                            <th>RxNorm ID</th>
+                        </tr>
+                    </thead>
+                    <tbody id="healthDataBody">
+                        <!-- Table rows will be inserted here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function fetchDataAndDisplay() {
+            try {
+                const response = await fetch("https://ebu.intermountainhealthcare.org/shprovider/UT_medicare_drugs.json");
+                const jsonData = await response.json();
+
+                const tableBody = document.getElementById("healthDataBody");
+
+                jsonData.forEach(row => {
+                    const newRow = document.createElement("tr");
+                    newRow.innerHTML = `
+                        <td>${row.drug_name}</td>
+                        <td>${JSON.stringify(row.plans)}</td>
+                        <td>${row.rxnorm_id}</td>
+                    `;
+                    tableBody.appendChild(newRow);
+                });
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        fetchDataAndDisplay();
+    </script>
+</body>
+</html>
